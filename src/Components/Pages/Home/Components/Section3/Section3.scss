@@ -1,0 +1,267 @@
+@import "../../../../../Assets/Styles/index.scss";
+
+
+.introduce {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .container {
+        position: relative;
+    }
+
+    // introduceBox
+    &Box {
+        width: 100%;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        @include large {
+            flex-direction: column;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        @include mobile {
+            width: 90%;
+        }
+
+        .three-item-wrapper-0,
+        .three-item-wrapper-2
+        {
+            transform: translateY(-100%);
+            opacity: 0;
+        }
+
+        .three-item-wrapper-1,
+        .three-item-wrapper-3
+        {
+            transform: translateY(100%);
+            opacity: 0;
+        }
+
+        // introduceBoxItem
+        &Item {
+            padding: 60px 0;
+            background-color: $color-hidden;
+            width: 366px;
+            display: flex;
+            flex-direction: column;
+            font-family: $font;
+            transition: all 0.5s;
+            position: relative;
+            overflow-y: hidden;
+
+            @include laptop {
+                width: 24%;
+                padding: 30px 0;
+            }
+
+            @include large {
+                width: 100%;
+                height: 20%;
+                margin: 20px 0;
+            }
+
+            @include tablet-s {
+                margin: 10px 0;
+            }
+
+            @include mobile {
+                height: 15%;
+            }
+
+            &:hover {
+                width: 395px;
+                background-color: #673dc7;
+                @include laptop {
+                    width: 25%;
+                    transform: scale(1.05);
+                    margin: 0 15px;
+                }
+
+                @include large {
+                    width: 100%;
+                    height: 25%;
+                    transform: unset;
+                    margin: 0;
+                }
+
+                @include tablet-s {
+                    height: 30%;
+                }
+
+                @include mobile {
+                    height: 50%;
+                }
+
+                .introduceBoxItemTitle {
+                    color: $color-text-hover;
+                    display: block;
+                }
+
+                .introduceBoxItemImage {
+                    // margin-bottom: 50px;
+                }
+
+                .introduceBoxItemContent {
+                    color: $color-text-hover;
+
+                    @include large {
+                        opacity: 1;
+                    }
+                }
+            }
+
+            // introduceBoxItemTitle
+            &Title {
+                font-size: 40.5px;
+                font-weight: 600;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1;
+                letter-spacing: normal;
+                text-align: left;
+                color: $color-text-hidden;
+                padding-left: 20px;
+                padding-bottom: 21px;
+                transition: all 0.5s;
+                min-height: 91px;
+                span {
+                    display: block;
+                }
+
+                @include laptop {
+                    font-size: 30px;
+                }
+
+                @include large {
+                    font-size: 20px;
+                    min-height: auto;
+                }
+
+                @include tablet-s {
+                    span {
+                        display: inline-block;
+                        padding: 0 5px;
+                    }
+                }
+            }
+
+            // introduceBoxItemImage
+            &Image {
+                margin-bottom: 50px;
+                transition: all 0.5s;
+
+                img {
+                    width: 100%;
+                }
+
+                @include laptop {
+                    margin-bottom: 30px;
+                }
+                @include large {
+                    display: none;
+                }
+            }
+
+            // introduceBoxItemContent
+            &Content {
+                color: $color-text-hidden;
+                font-size: 14.5px;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.93;
+                letter-spacing: normal;
+                text-align: left;
+                padding: 0 70px 0 20px;
+                transition: all 0.5s;
+
+                @include laptop {
+                    font-size: 13px;
+                }
+
+                @include large {
+                    opacity: 0;
+                    width: 90% !important;
+                    margin: 0 auto;
+                    text-align: left;
+                    transition: all 0.1s;
+                }
+
+                @include tablet-s {
+                    font-size: 11px;
+                    padding: 0 20px;
+                }
+
+                .nameContent {
+                    font-weight: 600;
+                }
+
+                .content {
+                    font-weight: 300;
+                    width: 276px;
+
+                    @include laptop {
+                        width: 225px;
+                    }
+
+                    @include large {
+                        width: 100%;
+                    }
+                }
+            }
+
+            @media only screen and (min-height: 1900px) {
+                &_title {
+                    font-size: 25px;
+                }
+
+                &_content {
+                    font-size: 11px;
+                    padding: 0 20px;
+                    .content {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+
+        @media only screen and (max-width: 1200px) and (max-height: 900px) {
+            &_item {
+                width: 90% !important;
+
+                &:hover {
+                    height: 50%;
+                }
+            }
+        }
+
+        @media only screen and (max-width: 840px) and (max-height: 760px) {
+            &_item {
+                &:hover {
+                    height: 100%;
+                }
+            }
+        }
+
+        @media only screen and (max-width: 840px) and (max-height: 460px) {
+            &_item {
+                margin: 5px 0;
+                &:hover {
+                    height: 200%;
+                }
+
+                &_title{
+                   span{
+                    display: inline-block;
+                    margin: 0 5px;
+                   }
+                }
+            }
+        }
+
+    }
+}

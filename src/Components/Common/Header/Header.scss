@@ -1,0 +1,255 @@
+@import "../../../Assets/Styles/index.scss";
+
+.header {
+    position: fixed;
+    top: 60px;
+    right: 60px;
+    z-index: 5;
+
+    @include laptop {
+        top: 40px;
+        right: 40px;
+    }
+
+    @include tablet {
+        top: 40px;
+        right: 20px;
+    }
+
+    @include mobile {
+        top: 20px;
+    }
+
+    // header active
+    &.active {
+        .headerToggleIcon {
+            span {
+                transform: rotate(45deg) translate(2px, 6px);
+                &:nth-child(2) {
+                    transform: rotate(-45deg) translate(0px, -5px);
+                }
+            }
+        }
+
+        .headerMenu {
+            transform: translateX(0%);
+        }
+    }
+    .lang {
+        color: $white;
+        height: 30px;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        // font-weight: 700;
+        text-align: center;
+        box-sizing: border-box;
+        margin: 5px;
+        &.active {
+            color: $colorActive;
+        }
+    }
+
+    // .headerToogle
+    &Toggle {
+        &Icon {
+            cursor: pointer;
+            position: absolute;
+            right: 0;
+            z-index: 300;
+            height: 40px;
+            span {
+                display: block;
+                width: 40px;
+                height: 2px;
+                margin-top: 7px;
+                position: relative;
+                background: $white;
+                z-index: 0.3;
+                transition: all 0.3s ease;
+                box-sizing: unset;
+            }
+        }
+
+        // .headerToogleLang
+        &Lang {
+            display: flex;
+            padding-top: 30px;
+        }
+    }
+
+    // .headerMenu
+    &Menu {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 450px;
+        background-color: $black;
+        z-index: 200;
+        padding: 150px 50px 50px 32px;
+        transform: translateX(100%);
+        transition: all 0.3s;
+
+        @include laptop {
+            padding: 100px 50px 50px 32px;
+        }
+
+        @include maxheight(420px) {
+            padding: 50px 100px 0 32px;
+        }
+
+        @include mobile {
+            width: 250px;
+        }
+
+        // .headerMenuLang
+        &Lang {
+            position: absolute;
+            top: 90px;
+            right: 60px;
+            display: flex;
+            padding: 0;
+
+            @include laptop {
+                top: 70px;
+                right: 40px;
+            }
+
+            @include tablet {
+                top: 70px;
+                right: 20px;
+            }
+
+            @include mobile {
+                top: 50px;
+            }
+            .lang {
+                color: #4d4d4d;
+
+                &.active {
+                    color: $white;
+                }
+            }
+        }
+
+        .menu {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            @include maxheight(750px) {
+                height: 300px;
+                overflow: auto;
+
+                // custom Scrollbar
+
+                &::-webkit-scrollbar-track {
+                    background-color: transparent;
+                }
+
+                &::-webkit-scrollbar {
+                    width: 2px;
+                    background-color: transparent;
+
+                    @include tablet {
+                        width: 5px;
+                    }
+                }
+
+                &::-webkit-scrollbar-thumb {
+                    background-color: $white;
+                }
+            }
+
+            @include maxheight(420px) {
+                height: 130px;
+                overflow: auto;
+            }
+
+            @include maxheight(330px) {
+                height: 100px;
+                overflow: auto;
+            }
+
+            a {
+                font-size: 35px;
+                color: #4d4d4d;
+                transition: all 0.5s;
+                padding: 8px 0;
+
+                &.active {
+                    color: $white;
+                }
+
+                &:hover {
+                    color: $white;
+                }
+
+                @include mobile {
+                    font-size: 25px;
+                }
+            }
+        }
+        .infoWrapper {
+            position: absolute;
+            width: 80%;
+            bottom: 60px;
+            border-top: 1px solid #4d4d4d;
+            font-weight: 100;
+            font-size: 12px;
+            color: #fff;
+            background: #000;
+
+            @include laptop {
+                bottom: 30px;
+            }
+
+            @include tablet {
+                br {
+                    display: none;
+                }
+                p {
+                    margin: 0;
+                }
+            }
+            @include maxheight(420px) {
+                br {
+                    display: none;
+                }
+                p {
+                    margin: 0;
+                }
+            }
+
+            #adress {
+                padding-top: 40px;
+                padding-bottom: 20px;
+                width: 80%;
+
+                @include tablet {
+                    padding: 10px 0;
+                }
+                @include maxheight(420px) {
+                    br {
+                        display: none;
+                    }
+                    p {
+                        margin: 0;
+                    }
+                }
+            }
+
+            .link {
+                color: #fff;
+                text-decoration: none;
+                a {
+                    color: #aeaeae;
+
+                    &:hover {
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+}
